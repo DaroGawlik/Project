@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FlowersApplication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/df0ce42e04.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@300;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/main.min.css">
+</head>
+
+<body>
+
+    <!-- MAIN MENU -->
+    <div class="main-view">
+        <header>
+            <h1><i class="fas fa-seedling icon"></i>FlowersApplication<i class="fas fa-tree icon"></i></h1>
+        </header>
+
+        <div class="question">
+            <p class="active-acc">Who's use?</p>
+            <p class="alert-info">No add any accounts</p>
+        </div>
+
+
+        <section>
+            <p class="alert-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime alias id deserunt
+                nesciunt
+                recusandae est expedita perspiciatis ex suscipit maiores repellat, corporis architecto voluptatem vitae,
+                totam autem rerum atque quia?</p>
+        </section>
+
+
+        <div class="btns-main-window">
+            <button class="btn btn-login"><i class="fas fa-door-open"></i>Login</button>
+            <button class="btn btn-add"><i class="fas fa-user-plus"></i></i>Add account</button>
+            <button class="btn btn-delete"><i class="fas fa-user-minus"></i></i>Delete account</button>
+            <button class="btn btn-all-delete"><i class="fas fa-users-slash"></i>Delete all accounts</button>
+        </div>
+    </div>
+
+
+    <!-- FORM WITH ADD NEW ACCOUNT  -->
+    <form id="newAccountForm">
+        <div class="add-new-account">
+            <h2 class="title">Add new account</h2>
+            <!-- <div class="form-box">
+                <img src="" alt="my avatar" width="50px" height="50px">
+            </div> -->
+            <div class="form-box">
+                <label for="username">Name:</label>
+                <input type="text" id="username" placeholder="Put your name" maxlength="10">
+                <p class="alert-add-account"></p>
+            </div>
+            <div class="form-box">
+                <label for="password1">Password:</label>
+                <input type="password" id="password1" placeholder="Put password">
+                <p class="pass1-text"></p>
+            </div>
+            <div class="form-box">
+                <label for="password2">Repeat password:</label>
+                <input type="password" id="password2" placeholder="Repeat password">
+                <p class="pass2-text"></p>
+            </div>
+            <div class="form-box">
+                <label for="file">Check your avatar</label>
+                <input type="file" id="avatar" accept="image/x-png,image/gif,image/jpeg" />
+                <input type="submit" alt="Login">
+                <div class="default-avatars">
+                    <div class="avatar one-avatar">1</div>
+                    <div class="avatar two-avatar">2</div>
+                    <div class="avatar three-avatar">3</div>
+                    <div class="avatar four-avatar">4</div>
+                    <div class="avatar five-avatar">5</div>
+                </div>
+                <!-- <p class="error-text">error</p> -->
+            </div>
+            <div class="btns-add-Window">
+                <button class="save"><i class="fas fa-save"></i> Save</button>
+                <button class="cancel"><i class="fas fa-window-close"></i> Cancel</button>
+            </div>
+        </div>
+    </form>
+    <script src="../dist/js/main.min.js"></script>
+
+</body>
+
+</html>

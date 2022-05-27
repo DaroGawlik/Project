@@ -1,0 +1,276 @@
+// @import '/src/sass/colors';
+// @import '/src/sass/small';
+// @import '/src/sass/medium';
+// @import '/src/sass/large';
+
+// :root {
+// 	--size: 60;
+// }
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	// 10px
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	font-family: 'Montserrat', sans-serif;
+	background-image: linear-gradient(340deg, #9be15d 0%, #00e3ae 100%);
+
+	.main {
+		display: block;
+	}
+}
+//header
+header {
+	position: relative;
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+.question {
+	position: relative;
+	padding-top: 19px;
+	padding-bottom: 20px;
+	min-height: 58px;
+
+	.alert-info,
+	.active-acc {
+		display: none;
+		text-align: center;
+		font-size: 15px;
+		font-weight: bold;
+	}
+
+	.alert-info {
+		display: block;
+	}
+}
+
+h1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.icon {
+		display: inline;
+		padding: 0 10px;
+	}
+}
+
+//section
+
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 200px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	overflow: hidden;
+
+	.account-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 150px;
+		height: 180px;
+		margin-bottom: 20px;
+		cursor: pointer;
+		overflow: visible;
+		transition: 0.8s;
+
+		.circle {
+			position: relative;
+			width: 125px;
+			height: 125px;
+			margin: 5px;
+			border-radius: 50%;
+			border: 1px solid black;
+
+			.letter {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 50px;
+			}
+		}
+
+		.square {
+			position: relative;
+			height: 50px;
+			margin: 5px;
+
+			.name {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 20px;
+			}
+		}
+	}
+
+	.alert-info {
+		display: block;
+		text-align: justify;
+		margin: 10px 20px;
+		font-size: 15px;
+		font-weight: bold;
+	}
+}
+
+.account-card::before,
+.account-card::after {
+	display: block;
+	position: absolute;
+	content: '';
+	transition: all 0.5s;
+	z-index: -1;
+}
+
+.account-card::after,
+.account-card::before {
+	width: 100%;
+	height: 100%;
+}
+
+.account-card::before {
+	top: 0;
+	left: 0;
+}
+
+.account-card::after {
+	bottom: 0;
+	right: 0;
+}
+
+.account-card:hover {
+	border: 1px solid transparent;
+}
+
+.account-card:hover::after {
+	bottom: -10px;
+	right: -10px;
+	border-bottom: 5px solid #13bb4b;
+	border-right: 5px solid #13bb4b;
+}
+.account-card:hover::after {
+	top: -10px;
+	left: -10px;
+	border-top: 5px solid #13bb4b;
+	border-left: 5px solid #13bb4b;
+}
+
+//footer
+
+.btns-main-window {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 2px;
+
+	.btn {
+		width: 170px;
+		height: 35px;
+		margin-bottom: 15px;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.fas {
+		padding-right: 10px;
+	}
+}
+
+///add panel
+
+.add-new-account {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 10px 30px 10px 30px;
+	font-size: 15px;
+	background-image: linear-gradient(340deg, #9be15d 0%, #00e3ae 100%);
+
+	h2 {
+		margin-bottom: 30px;
+	}
+
+	.form-box {
+		margin-bottom: 15px;
+
+		label {
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		input {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid rgb(197, 197, 197);
+			border-radius: 5px;
+		}
+		.alert-add-account,
+		.pass1-text,
+		.pass2-text {
+			color: red;
+		}
+
+		.default-avatars {
+			display: flex;
+			justify-content: space-between;
+			// align-items: center;
+
+			.avatar {
+				width: 40px;
+				height: 40px;
+
+				.one-avatar {
+					background-image: url('https://i.pinimg.com/550x/a2/bc/bb/a2bcbb216b790eb34844962944a3a16e.jpg');
+				}
+			}
+		}
+	}
+
+	.btns-add-Window {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.save,
+		.cancel {
+			width: 100px;
+			height: 30px;
+			margin: 0 10px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+
+			.fas {
+				padding-right: 10px;
+			}
+		}
+	}
+}
