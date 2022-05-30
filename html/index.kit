@@ -37,46 +37,64 @@
 
 
         <div class="btns-main-window">
-            <button class="btn btn-login"><i class="fas fa-door-open"></i>Login</button>
+            <button class="btn btn-login" disabled><i class="fas fa-door-open"></i>Login</button>
             <button class="btn btn-add"><i class="fas fa-user-plus"></i></i>Add account</button>
-            <button class="btn btn-delete"><i class="fas fa-user-minus"></i></i>Delete account</button>
+            <button class="btn btn-delete" disabled><i class="fas fa-user-minus"></i></i>Delete account</button>
             <button class="btn btn-all-delete"><i class="fas fa-users-slash"></i>Delete all accounts</button>
         </div>
     </div>
 
 
+    <!-- LOGIN PANEL -->
+    <div class="login-view-shadow">
+        <form id="loginForm" autocomplete="off">
+            <div class="login-view">
+                <div class="form-login-box">
+                    <label for="password3" autocomplete="off">Password:</label>
+                    <input type="password" id="password3" autocomplete="off" placeholder="Put password">
+                    <p class="alert-login-view"></p>
+                    <div class="btn-login-view">
+                        <button class="open-login"><i class="fas fa-book-open"></i> Open</button>
+                        <button class="cancel-login"><i class="fas fa-window-close"></i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
     <!-- FORM WITH ADD NEW ACCOUNT  -->
-    <form id="newAccountForm">
+    <form id="newAccountForm" autocomplete="off">
         <div class="add-new-account">
             <h2 class="title">Add new account</h2>
-            <!-- <div class="form-box">
-                <img src="" alt="my avatar" width="50px" height="50px">
-            </div> -->
             <div class="form-box">
                 <label for="username">Name:</label>
                 <input type="text" id="username" placeholder="Put your name" maxlength="10">
                 <p class="alert-add-account"></p>
             </div>
             <div class="form-box">
-                <label for="password1">Password:</label>
-                <input type="password" id="password1" placeholder="Put password">
+                <label for="password1" autocomplete="off">Password:</label>
+                <input type="password" id="password1" autocomplete="off" placeholder="Put password">
                 <p class="pass1-text"></p>
             </div>
             <div class="form-box">
-                <label for="password2">Repeat password:</label>
-                <input type="password" id="password2" placeholder="Repeat password">
+                <label for="password2" autocomplete="off">Repeat password:</label>
+                <input type="password" id="password2" autocomplete="off" placeholder="Repeat password">
                 <p class="pass2-text"></p>
             </div>
             <div class="form-box">
-                <label for="file">Check your avatar</label>
-                <input type="file" id="avatar" accept="image/x-png,image/gif,image/jpeg" />
-                <input type="submit" alt="Login">
-                <div class="default-avatars">
-                    <div class="avatar one-avatar">1</div>
-                    <div class="avatar two-avatar">2</div>
-                    <div class="avatar three-avatar">3</div>
-                    <div class="avatar four-avatar">4</div>
-                    <div class="avatar five-avatar">5</div>
+                <label for="avatar">Check your avatar</label>
+                <input type="file" id="avatar" accept="image/x-png,image/gif,image/jpeg" class="choose-file" />
+                <div class="forward-delete-avatar">
+                    <button type="submit" class="forward-avatar"><i class="fas fa-share"></i>Submit</button>
+                    <button type="button" class="delete-forward-avatar"><i class="fas fa-trash"></i>Remove</button>
+                </div>
+                <div class="defaults-avatars">
+                    <div class="avatarDefault one-avatar"></div>
+                    <div class="avatarDefault two-avatar"></div>
+                    <div class="avatarDefault three-avatar"></div>
+                    <div class="avatarDefault four-avatar"></div>
+                    <div class="avatarDefault five-avatar"></div>
                 </div>
                 <!-- <p class="error-text">error</p> -->
             </div>

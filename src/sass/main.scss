@@ -12,6 +12,7 @@
 	margin: 0;
 	padding: 0;
 }
+///320x
 
 html {
 	font-size: 62.5%;
@@ -20,9 +21,11 @@ html {
 
 body {
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	justify-content: flex-start;
 	font-family: 'Montserrat', sans-serif;
+	min-height: 100vh;
 	background-image: linear-gradient(340deg, #9be15d 0%, #00e3ae 100%);
 
 	.main {
@@ -79,6 +82,17 @@ section {
 	padding-bottom: 20px;
 	overflow: hidden;
 
+	.opacity-Bg {
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.01);
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		opacity: 0.4;
+		// z-index: -5;
+	}
+
 	.account-card {
 		position: relative;
 		display: flex;
@@ -90,6 +104,7 @@ section {
 		cursor: pointer;
 		overflow: visible;
 		transition: 0.8s;
+		z-index: 5;
 
 		.circle {
 			position: relative;
@@ -97,7 +112,8 @@ section {
 			height: 125px;
 			margin: 5px;
 			border-radius: 50%;
-			border: 1px solid black;
+			border: 2px solid black;
+			font-weight: bold;
 
 			.letter {
 				position: absolute;
@@ -112,6 +128,7 @@ section {
 			position: relative;
 			height: 50px;
 			margin: 5px;
+			font-weight: bold;
 
 			.name {
 				position: absolute;
@@ -132,8 +149,8 @@ section {
 	}
 }
 
-.account-card::before,
-.account-card::after {
+.cardWithOutBg::before,
+.cardWithOutBg::after {
 	display: block;
 	position: absolute;
 	content: '';
@@ -141,37 +158,41 @@ section {
 	z-index: -1;
 }
 
-.account-card::after,
-.account-card::before {
+.cardWithOutBg::after,
+.cardWithOutBg::before {
 	width: 100%;
 	height: 100%;
 }
 
-.account-card::before {
+.cardWithOutBg::before {
 	top: 0;
 	left: 0;
 }
 
-.account-card::after {
+.cardWithOutBg::after {
 	bottom: 0;
 	right: 0;
 }
 
-.account-card:hover {
+.cardWithOutBg:hover {
 	border: 1px solid transparent;
 }
 
-.account-card:hover::after {
+.cardWithOutBg:hover::after {
 	bottom: -10px;
 	right: -10px;
 	border-bottom: 5px solid #13bb4b;
 	border-right: 5px solid #13bb4b;
 }
-.account-card:hover::after {
+.cardWithOutBg:hover::after {
 	top: -10px;
 	left: -10px;
 	border-top: 5px solid #13bb4b;
 	border-left: 5px solid #13bb4b;
+}
+
+.cardWithBg:hover {
+	border: 1px solid black;
 }
 
 //footer
@@ -190,6 +211,12 @@ section {
 		border-radius: 5px;
 		border: none;
 		cursor: pointer;
+	}
+
+	.btn-login,
+	.btn-delete,
+	.btn-all-delete {
+		display: none;
 	}
 
 	.fas {
@@ -233,24 +260,55 @@ section {
 			border: 1px solid rgb(197, 197, 197);
 			border-radius: 5px;
 		}
+		.choose-file {
+			border: none;
+		}
+
+		.forward-delete-avatar {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
 		.alert-add-account,
 		.pass1-text,
 		.pass2-text {
 			color: red;
 		}
 
-		.default-avatars {
+		.defaults-avatars {
+			position: relative;
 			display: flex;
 			justify-content: space-between;
-			// align-items: center;
 
-			.avatar {
+			.avatarDefault {
+				margin-top: 10px;
 				width: 40px;
 				height: 40px;
+			}
 
-				.one-avatar {
-					background-image: url('https://i.pinimg.com/550x/a2/bc/bb/a2bcbb216b790eb34844962944a3a16e.jpg');
-				}
+			.avatarDefaultBig {
+				position: absolute;
+				bottom: 0px;
+				width: 260px;
+				height: 260px;
+				transform-origin: 0 0;
+				z-index: 1;
+			}
+
+			.one-avatar {
+				background-image: url('../img/sunflowersSmall1.jpg');
+			}
+			.two-avatar {
+				background-image: url('../img/crocusSmall2.jpg');
+			}
+			.three-avatar {
+				background-image: url('../img/blossomSmall3.jpg');
+			}
+			.four-avatar {
+				background-image: url('../img/roseSmall4.jpg');
+			}
+			.five-avatar {
+				background-image: url('../img/chamomileSmall5.jpg');
 			}
 		}
 	}
@@ -259,17 +317,85 @@ section {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		.save,
-		.cancel {
-			width: 100px;
-			height: 30px;
-			margin: 0 10px;
-			border-radius: 5px;
-			border: none;
-			cursor: pointer;
+	}
+	.save,
+	.cancel,
+	.forward-avatar,
+	.delete-forward-avatar {
+		width: 100px;
+		height: 30px;
+		margin: 0 10px;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
 
-			.fas {
-				padding-right: 10px;
+		.fas {
+			padding-right: 10px;
+		}
+	}
+	.forward-avatar,
+	.delete-forward-avatar {
+		display: none;
+	}
+}
+
+// LOGIN PANEL!
+
+.login-view-shadow {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 50;
+	.login-view {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 270px;
+		font-size: 15px;
+		padding: 5px 15px 5px 15px;
+		border: 1px solid black;
+		border-radius: 5px;
+		background-image: linear-gradient(340deg, #9be15d 0%, #00e3ae 100%);
+		// z-index: 50;
+
+		label {
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: bold;
+			padding: 10px 0 10px 0;
+		}
+
+		input {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid rgb(197, 197, 197);
+			border-radius: 5px;
+		}
+		.alert-login-view {
+			color: red;
+			padding: 10px 0 10px 0;
+		}
+		.btn-login-view {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 15px 10px 15px;
+			.open-login,
+			.cancel-login {
+				width: 100px;
+				height: 30px;
+				margin: 0 10px;
+				border-radius: 5px;
+				border: none;
+				cursor: pointer;
+
+				.fas {
+					padding-right: 10px;
+				}
 			}
 		}
 	}
