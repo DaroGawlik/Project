@@ -32,6 +32,7 @@ In next step:
 - Css
 - Sass
 - Gulp
+- Express
 
 also apply method "Mobile First". Default resolution is 320 x 568.
 
